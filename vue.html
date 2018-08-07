@@ -1,0 +1,94 @@
+<!DOCTYPE html><!-- doctype do HTML5 -->
+<html>
+	<head>
+		<title>Formulário de VUE.JS</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<style type="text/css">
+			body {
+			    background: #EFF8FF;
+			    font-family: system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+			    align-items: center;
+			    margin: 0;
+			    padding: 0;
+			}
+			#bloco_teste {
+				margin-top: 10%;
+				margin-right: 50%;
+				margin-left: 5%;
+				border: 5px 5px;
+				width: 500px;
+				text-align: center;
+			}
+			label{
+				text-align: left;
+			}
+			
+		</style>
+	</head>
+	
+  	<body>
+		<div>
+			<div id="OS_predialX" class="ordem_servico">
+				<div id="dataaberturaos">
+		  			<label>{{ dataos }}</label>
+				</div>
+				<div id="clienteos">
+					<label>Cliente</label>
+		  			<input type="text" name="nome_cliente_os" value="Lucas Martins Pereira" readonly="readonly" />
+				</div>
+				<div id="questionamento">
+					<label>Questionamento</label>
+		  			<textarea></textarea>
+				</div>
+				<div id="app">
+				  <h1>Colaboradores</h1>
+					<select v-model="selected">
+						<option v-for="option in options" v-bind:value="option.value">
+							{{ option.text }}
+						</option>
+					</select>
+					<span>Selected: {{ selected }}</span>
+				</div>
+				<div id="status">
+					<label>OS Concluída?</label>
+		  			<select>
+		  				<option>Não</option>
+		  				<option>Sim</option>
+		  			</select>
+				</div>
+			</div>
+			<div id="tabela_os">
+				
+			</div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		 
+		<script>
+			var dataaberturaos = new Vue({
+			  el: '#dataaberturaos',
+			  data: {
+				  dataos: '07-08-2018'
+			 }
+			})
+			new Vue({
+			  el: '#app',
+			  data: {
+				selected: 'A',
+				options: [
+				  { text: 'Lucas', value: 'Lucas Pereira' },
+				  { text: 'Diogo', value: 'Diogo' },
+				  { text: 'Reginaldo', value: 'Reginaldo' }
+				]
+			  }
+			})
+			
+			
+			
+		</script>
+
+	</body>
+
+
+
+	
+</html>
